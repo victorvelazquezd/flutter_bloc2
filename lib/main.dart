@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc2/observer.dart';
 import 'package:flutter_bloc2/presentation/home/view/home_page.dart';
+import 'package:flutter_bloc2/splash/view/splash_page.dart';
 
 import 'presentation/home/cubit/counter_cubit.dart';
 
 void main() {
+
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -35,7 +39,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: BlocProvider(create: (_) => CounterCubit(), child: const MyHomePage(title: 'Flutter Demo Home Page')),
+      home:  const SplashPage()
     );
   }
 }
