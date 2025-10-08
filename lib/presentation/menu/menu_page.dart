@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc2/presentation/example_bloc/view/example_bloc_page.dart';
 import 'package:flutter_bloc2/presentation/home/view/home_page.dart';
 import 'package:flutter_bloc2/presentation/pagination/view/pagination_page.dart';
 
@@ -23,7 +24,12 @@ class MenuPage extends StatelessWidget {
               ElevatedButton(
                   onPressed: () {
                      Navigator.push(context, MaterialPageRoute(builder: (context) => const PaginationPage()));
-                  }, child: const Text('Paginación'))
+                  }, child: const Text('Paginación')),
+                  const SizedBox(height: 20,),
+              ElevatedButton(
+                  onPressed: () {
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => const ExampleBlocPage()));
+                  }, child: const Text('Example Bloc'))
             ],
           ),
         ));

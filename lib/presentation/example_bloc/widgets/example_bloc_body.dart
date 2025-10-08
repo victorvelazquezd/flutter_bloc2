@@ -14,7 +14,7 @@ class ExampleBlocBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ExampleBlocBloc, ExampleBlocState>(
       builder: (context, state) {
-        return Center(child: Text(state.customProperty));
+        return Center(child: Text(''));
       },
     );
   }
