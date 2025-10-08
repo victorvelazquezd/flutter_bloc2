@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc2/presentation/home/view/home_page.dart';
+import 'package:flutter_bloc2/presentation/menu/menu_page.dart';
 import 'package:flutter_bloc2/splash/cubit/splash_cubit.dart';
 
 class SplashPage extends StatelessWidget {
@@ -23,7 +24,7 @@ class SplashView extends StatelessWidget {
     return BlocConsumer<SplashCubit, SplashState>(
       listener: (context, state) {
         if(state.status == SplashStatus.success ){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const MyHomePage()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const MenuPage()));
         }
       },
       builder: (context, state) {

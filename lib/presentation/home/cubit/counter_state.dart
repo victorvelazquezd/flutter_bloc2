@@ -1,30 +1,52 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc2/presentation/data/models/pokemon_model.dart';
+enum CounterStatus { initial, loading, success, error }
 
-enum CounterStatus{
-  initial,
-  loading, 
-  success,
-  error
-}
-
-class CounterState extends Equatable{
+/* class HomeState extends Equatable{
 
   final int counter;
   final CounterStatus status;
+  final Pokemon? pokemon;
 
-  const CounterState({this.counter = 0, this.status = CounterStatus.initial});
+  const HomeState({this.counter = 0, this.status = CounterStatus.initial, this.pokemon});
 
-  CounterState copyWith({
+  HomeState copyWith({
     int? counter,
     CounterStatus? status,
+    Pokemon? pokemon
   }) {
-    return CounterState(
+    return HomeState(
       counter: counter ?? this .counter,
       status: status ?? this .status,
+      pokemon: pokemon ?? this.pokemon
     );
   }
 
   @override
-  List<Object?> get props => [counter, status];
+  List<Object?> get props => [counter, status, pokemon];
 
+} */
+
+class HomeState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
+
+class HomeLoading extends HomeState {}
+
+class HomeSuccess extends HomeState {
+  final Pokemon pokemon;
+  HomeSuccess(this.pokemon);
+
+  @override
+  List<Object?> get props => [pokemon];
+}
+
+class HomeError extends HomeState {
+  final String message;
+
+  HomeError(this.message);
+
+  @override
+  List<Object?> get props => [message];
 }
