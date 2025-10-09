@@ -11,7 +11,9 @@ abstract class ExampleBlocEvent  extends Equatable {
 /// {@template custom_example_bloc_event}
 /// Event added when some custom logic happens
 /// {@endtemplate}
-class CustomExampleBlocEvent extends ExampleBlocEvent {
+class GetPokemonBlocEvent extends ExampleBlocEvent {
   /// {@macro custom_example_bloc_event}
-  const CustomExampleBlocEvent();
+  /// 
+  final String name;
+  const GetPokemonBlocEvent(this.name);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc2/presentation/domain/repository/poke_repository.dart';
 import 'package:flutter_bloc2/presentation/example_bloc/bloc/bloc.dart';
 import 'package:flutter_bloc2/presentation/example_bloc/widgets/example_bloc_body.dart';
 
@@ -17,12 +18,18 @@ class ExampleBlocPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ExampleBlocBloc(),
-      child: const Scaffold(
-        body: ExampleBlocView(),
+      create: (context) =>
+          ExampleBlocBloc(pokeRepository: context.read<PokeRepository>())
+            ..add(const GetPokemonBlocEvent('Example name')),
+      child:  Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('Example Bloc'),
+      ),
+        body: const ExampleBlocView(),
       ),
     );
-  }    
+  }
 }
 
 /// {@template example_bloc_view}
